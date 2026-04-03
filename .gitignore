@@ -1,0 +1,33 @@
+# Images (keep curated docs screenshots tracked)
+*.png
+*.PNG
+!docs/images/*.png
+!docs/images/*.PNG
+
+# Documentation screenshots (not needed in repo)
+docs/1280x720forGoogle/
+docs/screenshot*.jpg
+
+# Three.js full source tree (vendored copy - large library)
+js/three.js/
+
+# Vendored third-party library packages
+libs/three/webvr-polyfill-master/
+libs/webvr-ui/
+
+# Binary 3D assets
+assets/objects/*.skp
+
+# Node modules
+node_modules/
+playwright-report/
+test-results/
+
+# Environment and local config
+.env
+.env.*
+.mcp.json
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: lucidity-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: lucidity
+      POSTGRES_PASSWORD: lucidity
+      POSTGRES_DB: lucidity
+    ports:
+      - "5433:5432"
+    volumes:
+      - lucidity-postgres:/var/lib/postgresql/data
+
+volumes:
+  lucidity-postgres:
