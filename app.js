@@ -97,49 +97,97 @@ const THEME_LIBRARY = [
   },
 ];
 
+const LIBRARY_GROUPS = [
+  { key: 'standard', title: 'Standard', description: 'Core topic and content blocks.' },
+  { key: 'flowcharts', title: 'Flowcharts', description: 'Process and decision symbols.' },
+  { key: 'shapes', title: 'Shapes', description: 'Geometry for custom composition.' },
+  { key: 'others', title: 'Others', description: 'Utility visuals and helper cards.' },
+  { key: 'containers', title: 'Containers', description: 'Frames for lanes, boards, and grouped contexts.' },
+  { key: 'cloud', title: 'Cloud', description: 'Cloud and network architecture stencils.' },
+  { key: 'data', title: 'Data', description: 'Data platform and storage building blocks.' },
+  { key: 'aiagentic', title: 'AI + Agentic', description: 'Copilot, model, and agent workflow symbols.' },
+  { key: 'backend', title: 'Backend', description: 'API, service, and runtime components.' },
+  { key: 'opssecurity', title: 'Ops + Security', description: 'Observability, reliability, and security views.' },
+];
+
 const LIBRARY_SECTIONS = {
   standard: [
-    { id: 'rounded-rect', label: 'Topic', width: 200, height: 76 },
-    { id: 'rect', label: 'Rectangle', width: 180, height: 72 },
-    { id: 'pill', label: 'Pill', width: 180, height: 64 },
-    { id: 'terminator', label: 'Terminator', width: 186, height: 66 },
-    { id: 'subroutine', label: 'Subroutine', width: 196, height: 78 },
-    { id: 'note', label: 'Note', width: 180, height: 100 },
-    { id: 'text', label: 'Text', width: 180, height: 48 },
+    { id: 'rounded-rect', label: 'Topic', width: 200, height: 76, tags: ['mindmap', 'core', 'topic'] },
+    { id: 'rect', label: 'Rectangle', width: 180, height: 72, tags: ['general', 'block'] },
+    { id: 'pill', label: 'Pill', width: 180, height: 64, tags: ['label', 'endpoint'] },
+    { id: 'terminator', label: 'Terminator', width: 186, height: 66, tags: ['start', 'end'] },
+    { id: 'subroutine', label: 'Subroutine', width: 196, height: 78, tags: ['procedure', 'logic'] },
+    { id: 'note', label: 'Note', width: 180, height: 100, tags: ['annotation', 'idea'] },
+    { id: 'text', label: 'Text', width: 180, height: 48, tags: ['label', 'caption'] },
   ],
   flowcharts: [
-    { id: 'diamond', label: 'Decision', width: 170, height: 110 },
-    { id: 'parallelogram', label: 'Input', width: 180, height: 88 },
-    { id: 'document', label: 'Document', width: 180, height: 92 },
-    { id: 'manual-input', label: 'Manual Input', width: 190, height: 88 },
-    { id: 'display', label: 'Display', width: 190, height: 88 },
-    { id: 'delay', label: 'Delay', width: 190, height: 88 },
-    { id: 'off-page', label: 'Off Page', width: 170, height: 104 },
-    { id: 'connector', label: 'Connector', width: 90, height: 90 },
-    { id: 'cylinder', label: 'Database', width: 180, height: 96 },
-    { id: 'circle', label: 'Start', width: 112, height: 112 },
+    { id: 'diamond', label: 'Decision', width: 170, height: 110, tags: ['flow', 'branch'] },
+    { id: 'parallelogram', label: 'Input', width: 180, height: 88, tags: ['io', 'input'] },
+    { id: 'document', label: 'Document', width: 180, height: 92, tags: ['doc', 'report'] },
+    { id: 'manual-input', label: 'Manual Input', width: 190, height: 88, tags: ['user', 'entry'] },
+    { id: 'display', label: 'Display', width: 190, height: 88, tags: ['screen', 'output'] },
+    { id: 'delay', label: 'Delay', width: 190, height: 88, tags: ['wait', 'latency'] },
+    { id: 'off-page', label: 'Off Page', width: 170, height: 104, tags: ['jump', 'external'] },
+    { id: 'connector', label: 'Connector', width: 90, height: 90, tags: ['junction', 'link'] },
+    { id: 'cylinder', label: 'Database', width: 180, height: 96, tags: ['storage', 'db'] },
+    { id: 'circle', label: 'Start', width: 112, height: 112, tags: ['start', 'trigger'] },
   ],
   shapes: [
-    { id: 'hexagon', label: 'Hexagon', width: 170, height: 96 },
-    { id: 'triangle', label: 'Triangle', width: 150, height: 110 },
-    { id: 'pentagon', label: 'Pentagon', width: 170, height: 104 },
-    { id: 'octagon', label: 'Octagon', width: 170, height: 104 },
-    { id: 'star', label: 'Star', width: 170, height: 110 },
-    { id: 'chevron', label: 'Chevron', width: 170, height: 88 },
-    { id: 'tag', label: 'Tag', width: 180, height: 84 },
-    { id: 'cloud', label: 'Cloud', width: 190, height: 110 },
+    { id: 'hexagon', label: 'Hexagon', width: 170, height: 96, tags: ['shape'] },
+    { id: 'triangle', label: 'Triangle', width: 150, height: 110, tags: ['shape'] },
+    { id: 'pentagon', label: 'Pentagon', width: 170, height: 104, tags: ['shape'] },
+    { id: 'octagon', label: 'Octagon', width: 170, height: 104, tags: ['shape'] },
+    { id: 'star', label: 'Star', width: 170, height: 110, tags: ['shape', 'highlight'] },
+    { id: 'chevron', label: 'Chevron', width: 170, height: 88, tags: ['flow', 'direction'] },
+    { id: 'tag', label: 'Tag', width: 180, height: 84, tags: ['label'] },
+    { id: 'cloud', label: 'Cloud', width: 190, height: 110, tags: ['network', 'internet'] },
   ],
   others: [
-    { id: 'image-card', label: 'Image Card', width: 220, height: 140 },
-    { id: 'group-frame', label: 'Group Frame', width: 320, height: 220 },
-    { id: 'callout', label: 'Callout', width: 220, height: 120 },
-    { id: 'table', label: 'Table', width: 240, height: 140 },
-    { id: 'caption', label: 'Caption', width: 220, height: 56 },
+    { id: 'image-card', label: 'Image Card', width: 220, height: 140, tags: ['asset', 'media'] },
+    { id: 'group-frame', label: 'Group Frame', width: 320, height: 220, tags: ['scope', 'group'] },
+    { id: 'callout', label: 'Callout', width: 220, height: 120, tags: ['comment', 'annotation'] },
+    { id: 'table', label: 'Table', width: 240, height: 140, tags: ['matrix', 'grid'] },
+    { id: 'caption', label: 'Caption', width: 220, height: 56, tags: ['title', 'label'] },
   ],
   containers: [
-    { id: 'lane', label: 'Lane', width: 460, height: 160 },
-    { id: 'board', label: 'Board', width: 420, height: 260 },
-    { id: 'cluster', label: 'Cluster', width: 360, height: 260 },
+    { id: 'lane', label: 'Lane', width: 460, height: 160, tags: ['swimlane', 'workflow'] },
+    { id: 'board', label: 'Board', width: 420, height: 260, tags: ['canvas', 'module'] },
+    { id: 'cluster', label: 'Cluster', width: 360, height: 260, tags: ['domain', 'zone'] },
+  ],
+  cloud: [
+    { id: 'cloud', label: 'Cloud Region', width: 210, height: 118, tags: ['aws', 'gcp', 'azure', 'region'] },
+    { id: 'board', label: 'VPC / Network Boundary', width: 460, height: 280, tags: ['vpc', 'subnet', 'network'] },
+    { id: 'cylinder', label: 'Managed Data Store', width: 192, height: 104, tags: ['rds', 's3', 'blob'] },
+    { id: 'rect', label: 'Compute Service', width: 188, height: 78, tags: ['service', 'container', 'compute'] },
+    { id: 'connector', label: 'Gateway', width: 98, height: 98, tags: ['gateway', 'ingress'] },
+  ],
+  data: [
+    { id: 'cylinder', label: 'Data Warehouse', width: 200, height: 108, tags: ['warehouse', 'lakehouse'] },
+    { id: 'table', label: 'Schema Table', width: 260, height: 150, tags: ['schema', 'table'] },
+    { id: 'document', label: 'Batch Artifact', width: 192, height: 100, tags: ['batch', 'file'] },
+    { id: 'rect', label: 'ETL Job', width: 186, height: 76, tags: ['etl', 'pipeline'] },
+    { id: 'diamond', label: 'Quality Gate', width: 176, height: 116, tags: ['quality', 'validation'] },
+  ],
+  aiagentic: [
+    { id: 'rounded-rect', label: 'Agent', width: 196, height: 76, tags: ['agent', 'planner'] },
+    { id: 'pill', label: 'Skill', width: 178, height: 66, tags: ['tool', 'capability'] },
+    { id: 'rect', label: 'Model Runtime', width: 206, height: 80, tags: ['llm', 'inference', 'kimi'] },
+    { id: 'note', label: 'Prompt Context', width: 208, height: 112, tags: ['prompt', 'context'] },
+    { id: 'chevron', label: 'Reasoning Step', width: 190, height: 92, tags: ['reasoning', 'chain'] },
+  ],
+  backend: [
+    { id: 'rect', label: 'API Service', width: 188, height: 76, tags: ['api', 'service'] },
+    { id: 'subroutine', label: 'Worker', width: 198, height: 80, tags: ['worker', 'queue'] },
+    { id: 'connector', label: 'Queue', width: 102, height: 102, tags: ['queue', 'event'] },
+    { id: 'terminator', label: 'External Consumer', width: 198, height: 68, tags: ['consumer', 'client'] },
+    { id: 'parallelogram', label: 'I/O Adapter', width: 192, height: 92, tags: ['adapter', 'io'] },
+  ],
+  opssecurity: [
+    { id: 'diamond', label: 'Policy Decision', width: 180, height: 118, tags: ['policy', 'authz'] },
+    { id: 'callout', label: 'Alert / Incident', width: 228, height: 124, tags: ['incident', 'alert'] },
+    { id: 'board', label: 'Trust Zone', width: 430, height: 268, tags: ['zone', 'boundary'] },
+    { id: 'note', label: 'Runbook', width: 206, height: 110, tags: ['runbook', 'ops'] },
+    { id: 'circle', label: 'Probe', width: 116, height: 116, tags: ['health', 'probe', 'telemetry'] },
   ],
 };
 
@@ -154,7 +202,23 @@ const TEMPLATE_GROUPS = [
   },
   {
     title: 'Meeting and Planning',
-    items: ['business-plan', 'release-coordination', 'workshop', 'dissertation-plan'],
+    items: ['business-plan', 'release-coordination', 'workshop', 'dissertation-plan', 'performance-matrix'],
+  },
+  {
+    title: 'Cloud and Infrastructure',
+    items: ['microservice-mesh', 'kubernetes-platform', 'event-driven'],
+  },
+  {
+    title: 'AI and Agentic',
+    items: ['ai-agentic-system', 'rag-pipeline', 'mlops-loop'],
+  },
+  {
+    title: 'Data and Analytics',
+    items: ['data-lakehouse', 'streaming-analytics'],
+  },
+  {
+    title: 'Security and Operations',
+    items: ['zero-trust', 'sre-observability', 'enterprise-integration'],
   },
 ];
 
@@ -173,6 +237,17 @@ const TEMPLATE_REGISTRY = {
   'workshop': { id: 'workshop', name: 'Workshop', category: 'Meeting and Planning', create: (title) => buildWorkshop(title || 'Workshop') },
   'dissertation-plan': { id: 'dissertation-plan', name: 'Dissertation Plan', category: 'Meeting and Planning', create: (title) => buildDissertationPlan(title || 'Dissertation Plan') },
   'performance-matrix': { id: 'performance-matrix', name: '9 Box Performance Pot...', category: 'Meeting and Planning', create: (title) => buildPerformanceMatrix(title || '9 Box Performance-Pot...') },
+  'microservice-mesh': { id: 'microservice-mesh', name: 'Microservice Mesh', category: 'Cloud and Infrastructure', create: (title) => buildMicroserviceMesh(title || 'Microservice Mesh') },
+  'kubernetes-platform': { id: 'kubernetes-platform', name: 'Kubernetes Platform', category: 'Cloud and Infrastructure', create: (title) => buildKubernetesPlatform(title || 'Kubernetes Platform') },
+  'event-driven': { id: 'event-driven', name: 'Event Driven Platform', category: 'Cloud and Infrastructure', create: (title) => buildEventDrivenPlatform(title || 'Event Driven Platform') },
+  'ai-agentic-system': { id: 'ai-agentic-system', name: 'AI Agentic System', category: 'AI and Agentic', create: (title) => buildAiAgenticSystem(title || 'AI Agentic System') },
+  'rag-pipeline': { id: 'rag-pipeline', name: 'RAG Pipeline', category: 'AI and Agentic', create: (title) => buildRagPipeline(title || 'RAG Pipeline') },
+  'mlops-loop': { id: 'mlops-loop', name: 'MLOps Loop', category: 'AI and Agentic', create: (title) => buildMlopsLoop(title || 'MLOps Loop') },
+  'data-lakehouse': { id: 'data-lakehouse', name: 'Data Lakehouse', category: 'Data and Analytics', create: (title) => buildDataLakehouse(title || 'Data Lakehouse') },
+  'streaming-analytics': { id: 'streaming-analytics', name: 'Streaming Analytics', category: 'Data and Analytics', create: (title) => buildStreamingAnalytics(title || 'Streaming Analytics') },
+  'zero-trust': { id: 'zero-trust', name: 'Zero Trust Architecture', category: 'Security and Operations', create: (title) => buildZeroTrustArchitecture(title || 'Zero Trust Architecture') },
+  'sre-observability': { id: 'sre-observability', name: 'SRE Observability', category: 'Security and Operations', create: (title) => buildSreObservability(title || 'SRE Observability') },
+  'enterprise-integration': { id: 'enterprise-integration', name: 'Enterprise Integration', category: 'Security and Operations', create: (title) => buildEnterpriseIntegration(title || 'Enterprise Integration') },
 };
 
 const defaultSettings = {
@@ -236,7 +311,13 @@ function createInitialState() {
       shapes: true,
       others: false,
       containers: true,
+      cloud: false,
+      data: false,
+      aiagentic: false,
+      backend: false,
+      opssecurity: false,
     },
+    librarySearch: '',
     selection: initialDoc ? { type: 'node', id: initialDoc.rootId || initialDoc.nodes[0]?.id } : null,
     createModal: {
       open: false,
@@ -833,37 +914,74 @@ function renderLeftPanel(doc) {
   return `
     <div class="left-panel-header">
       <h3>Shapes</h3>
-      <p>Standard, flowchart, container, and utility shapes for a draw.io-style editor with Lucid-style polish.</p>
+      <p>Expert architecture library with searchable stencils for cloud, data, AI, backend, and operations design.</p>
     </div>
-    ${renderLibraryGroup('Standard', 'standard')}
-    ${renderLibraryGroup('Flowchart', 'flowcharts')}
-    ${renderLibraryGroup('Shapes', 'shapes')}
-    ${renderLibraryGroup('Others', 'others')}
-    ${renderLibraryGroup('Containers', 'containers')}
+    <label class="search-input library-search">
+      ${searchIcon()}
+      <input
+        type="search"
+        placeholder="Search stencils, tags, or shape ids"
+        value="${escapeAttr(state.librarySearch)}"
+        data-field="library-search"
+      />
+    </label>
+    <div class="library-section-note">
+      ${state.librarySearch.trim()
+    ? `Showing matches for "${escapeHtml(state.librarySearch.trim())}".`
+    : 'Use tags like agent, queue, policy, gateway, or lakehouse to filter quickly.'}
+    </div>
+    ${LIBRARY_GROUPS.map((group) => renderLibraryGroup(group, state.librarySearch)).join('')}
   `;
 }
 
-function renderLibraryGroup(title, key) {
-  const items = LIBRARY_SECTIONS[key];
+function renderLibraryGroup(group, searchQuery = '') {
+  const { key, title, description } = group;
+  const items = getVisibleLibraryItems(key, searchQuery);
+  const total = (LIBRARY_SECTIONS[key] || []).length;
   const isOpen = state.libraryExpanded[key];
   return `
     <section class="library-group ${isOpen ? 'is-open' : ''}">
       <button class="library-group-header" data-action="toggle-library-group" data-group="${key}">
-        <span>${escapeHtml(title)}</span>
+        <span>${escapeHtml(title)}${searchQuery.trim() ? ` (${items.length}/${total})` : ''}</span>
         <span>${isOpen ? '−' : '+'}</span>
       </button>
+      ${description ? `<div class="library-group-note">${escapeHtml(description)}</div>` : ''}
       ${isOpen ? `
         <div class="shape-grid">
-          ${items.map((item) => `
+          ${items.length
+    ? items.map((item) => `
             <button class="shape-card" data-action="insert-shape" data-shape="${item.id}">
               <div class="shape-icon">${renderShapeGlyph(item.id)}</div>
               <span>${escapeHtml(item.label)}</span>
+              <div class="shape-card-meta">${item.width}×${item.height}</div>
+              ${Array.isArray(item.tags) && item.tags.length ? `
+                <div class="shape-card-tags">
+                  ${item.tags.slice(0, 2).map((tag) => `<span>${escapeHtml(tag)}</span>`).join('')}
+                </div>
+              ` : ''}
             </button>
-          `).join('')}
+          `).join('')
+    : '<div class="shape-empty">No stencils match this filter.</div>'}
         </div>
       ` : ''}
     </section>
   `;
+}
+
+function getVisibleLibraryItems(groupKey, searchQuery = '') {
+  const items = LIBRARY_SECTIONS[groupKey] || [];
+  const query = String(searchQuery || '').trim().toLowerCase();
+  if (!query) return items;
+  const tokens = query.split(/\s+/).filter(Boolean);
+  return items.filter((item) => {
+    const haystack = [
+      item.id,
+      item.label,
+      groupKey,
+      ...(Array.isArray(item.tags) ? item.tags : []),
+    ].join(' ').toLowerCase();
+    return tokens.every((token) => haystack.includes(token));
+  });
 }
 
 function renderEditorSvg(doc) {
@@ -1490,6 +1608,10 @@ function handleChange(event) {
       state.search = event.target.value;
       scheduleRender();
       return;
+    case 'library-search':
+      state.librarySearch = event.target.value;
+      scheduleRender();
+      return;
     case 'create-title':
       state.createModal.title = event.target.value;
       return;
@@ -1613,6 +1735,11 @@ function handleInput(event) {
   if (field === 'ai-prompt') {
     state.settings.prompt = event.target.value;
     persistState();
+    return;
+  }
+  if (field === 'library-search') {
+    state.librarySearch = event.target.value;
+    scheduleRender();
     return;
   }
   if (field === 'mermaid-source') {
@@ -1906,7 +2033,7 @@ function handlePointerUp(event) {
     const pointerWorld = interaction.pointerWorld || getWorldPointFromEvent(event, doc);
     if (edge && pointerWorld) {
       const oppositeId = interaction.end === 'source' ? edge.target : edge.source;
-      const hoverNode = findNodeAtWorldPoint(doc, pointerWorld, 18, oppositeId);
+      const hoverNode = findNodeAtWorldPoint(doc, pointerWorld, 28, oppositeId);
       if (hoverNode) {
         pushHistorySnapshot();
         if (interaction.end === 'source') edge.source = hoverNode.id;
@@ -1938,9 +2065,13 @@ function handleWheel(event) {
   event.preventDefault();
   const doc = getActiveDocument();
   if (!doc) return;
+  const normalizedDelta = normalizeWheelDelta(event);
+  if (Math.abs(normalizedDelta) < 0.01) return;
   const rect = stage.getBoundingClientRect();
   const screenPoint = { x: event.clientX - rect.left, y: event.clientY - rect.top };
-  const factor = Math.exp(-event.deltaY * 0.0015);
+  const clampedDelta = clamp(normalizedDelta, -96, 96);
+  const precisionScale = event.ctrlKey ? 0.35 : 1;
+  const factor = Math.pow(0.9988, clampedDelta * precisionScale);
   zoomAtStagePoint(doc, factor, screenPoint);
   touchDocument(doc);
   scheduleRender();
@@ -3801,6 +3932,279 @@ function buildPerformanceMatrix(title, options = {}) {
   return doc;
 }
 
+function buildMicroserviceMesh(title, options = {}) {
+  const doc = createDocument(title, 'architecture', 'microservice-mesh');
+  doc.themeId = 'atlas';
+  const theme = getTheme(doc.themeId);
+  const boundary = createNode({ label: 'Production Mesh', x: 120, y: 110, width: 1040, height: 470, shape: 'board', fill: hexToRgba('#112034', 0.1), stroke: '#2f577c', textColor: theme.ink, fontSize: 12 });
+  const gateway = createNode({ label: 'API Gateway', x: 190, y: 290, width: 180, height: 76, shape: 'rect', fill: '#e7f2ff', stroke: '#4e93ff', textColor: theme.ink });
+  const auth = createNode({ label: 'Auth Service', x: 460, y: 180, width: 180, height: 72, shape: 'rect', fill: '#e8f6ff', stroke: '#38a5cf', textColor: theme.ink });
+  const billing = createNode({ label: 'Billing Service', x: 460, y: 300, width: 180, height: 72, shape: 'rect', fill: '#eaf4ff', stroke: '#5488ff', textColor: theme.ink });
+  const notifications = createNode({ label: 'Notification Worker', x: 460, y: 420, width: 198, height: 78, shape: 'subroutine', fill: '#eef6ff', stroke: '#679ad4', textColor: theme.ink });
+  const events = createNode({ label: 'Event Bus', x: 760, y: 300, width: 112, height: 112, shape: 'connector', fill: '#fff7d9', stroke: '#e2b64e', textColor: theme.ink });
+  const data = createNode({ label: 'Service DB', x: 930, y: 180, width: 190, height: 98, shape: 'cylinder', fill: '#fff2da', stroke: '#dcaa4b', textColor: theme.ink });
+  const cache = createNode({ label: 'Cache', x: 940, y: 370, width: 152, height: 84, shape: 'pill', fill: '#f4e6ff', stroke: '#9c74dd', textColor: theme.ink });
+  doc.nodes.push(boundary, gateway, auth, billing, notifications, events, data, cache);
+  doc.edges.push(
+    createEdge(gateway.id, auth.id, { color: theme.line, kind: 'hierarchy', style: 'elbow' }),
+    createEdge(gateway.id, billing.id, { color: theme.line, kind: 'hierarchy', style: 'elbow' }),
+    createEdge(gateway.id, notifications.id, { color: theme.line, kind: 'hierarchy', style: 'elbow' }),
+    createEdge(auth.id, events.id, { color: '#38a5cf', kind: 'manual', style: 'elbow' }),
+    createEdge(billing.id, events.id, { color: '#5488ff', kind: 'manual', style: 'elbow' }),
+    createEdge(events.id, notifications.id, { color: '#e2b64e', kind: 'manual', style: 'elbow' }),
+    createEdge(auth.id, data.id, { color: '#dcaa4b', kind: 'manual' }),
+    createEdge(billing.id, cache.id, { color: '#9c74dd', kind: 'manual' }),
+  );
+  doc.rootId = gateway.id;
+  doc.showGuide = options.seedGuide === false ? false : true;
+  return doc;
+}
+
+function buildKubernetesPlatform(title, options = {}) {
+  const doc = createDocument(title, 'architecture', 'kubernetes-platform');
+  doc.themeId = 'signal';
+  const theme = getTheme(doc.themeId);
+  const cluster = createNode({ label: 'Kubernetes Cluster', x: 130, y: 90, width: 1020, height: 500, shape: 'cluster', fill: hexToRgba('#13463d', 0.1), stroke: '#2f7c68', textColor: theme.ink, fontSize: 12 });
+  const ingress = createNode({ label: 'Ingress', x: 190, y: 290, width: 170, height: 74, shape: 'rect', fill: '#dff7ee', stroke: '#39a36f', textColor: theme.ink });
+  const api = createNode({ label: 'API Deployment', x: 470, y: 190, width: 208, height: 82, shape: 'rect', fill: '#e6fff4', stroke: '#4ebf89', textColor: theme.ink });
+  const workers = createNode({ label: 'Worker Deployment', x: 470, y: 330, width: 220, height: 82, shape: 'subroutine', fill: '#ebfff7', stroke: '#3f9f77', textColor: theme.ink });
+  const stateful = createNode({ label: 'Stateful Set', x: 470, y: 470, width: 198, height: 74, shape: 'rect', fill: '#eef9ff', stroke: '#5b9fce', textColor: theme.ink });
+  const serviceMesh = createNode({ label: 'Service Mesh', x: 810, y: 190, width: 184, height: 76, shape: 'diamond', fill: '#def1ff', stroke: '#66a5d1', textColor: theme.ink });
+  const metrics = createNode({ label: 'Metrics Stack', x: 810, y: 330, width: 194, height: 82, shape: 'table', fill: '#fff3d6', stroke: '#d8a756', textColor: theme.ink });
+  const storage = createNode({ label: 'Persistent Volume', x: 820, y: 470, width: 190, height: 98, shape: 'cylinder', fill: '#fdf0df', stroke: '#d89d54', textColor: theme.ink });
+  doc.nodes.push(cluster, ingress, api, workers, stateful, serviceMesh, metrics, storage);
+  doc.edges.push(
+    createEdge(ingress.id, api.id, { color: '#39a36f', kind: 'hierarchy' }),
+    createEdge(ingress.id, workers.id, { color: '#39a36f', kind: 'hierarchy' }),
+    createEdge(api.id, serviceMesh.id, { color: '#66a5d1', kind: 'manual', style: 'elbow' }),
+    createEdge(workers.id, serviceMesh.id, { color: '#66a5d1', kind: 'manual', style: 'elbow' }),
+    createEdge(serviceMesh.id, metrics.id, { color: '#d8a756', kind: 'manual' }),
+    createEdge(stateful.id, storage.id, { color: '#d89d54', kind: 'manual' }),
+    createEdge(workers.id, stateful.id, { color: theme.line, kind: 'manual', style: 'elbow' }),
+  );
+  doc.rootId = ingress.id;
+  doc.showGuide = options.seedGuide === false ? false : true;
+  return doc;
+}
+
+function buildEventDrivenPlatform(title, options = {}) {
+  const doc = createDocument(title, 'architecture', 'event-driven');
+  doc.themeId = 'studio';
+  const theme = getTheme(doc.themeId);
+  const frame = createNode({ label: 'Event-Driven Platform', x: 130, y: 110, width: 1020, height: 470, shape: 'board', fill: hexToRgba('#1c1f2c', 0.06), stroke: '#6a7388', textColor: theme.ink, fontSize: 12 });
+  const producer = createNode({ label: 'Web + Mobile Producers', x: 170, y: 290, width: 230, height: 72, shape: 'terminator', fill: '#edf2ff', stroke: '#7283c5', textColor: theme.ink });
+  const ingestion = createNode({ label: 'Ingestion API', x: 470, y: 190, width: 194, height: 78, shape: 'rect', fill: '#e7ecff', stroke: '#6776bf', textColor: theme.ink });
+  const queue = createNode({ label: 'Event Stream', x: 510, y: 340, width: 118, height: 118, shape: 'connector', fill: '#fff6d8', stroke: '#daab4a', textColor: theme.ink });
+  const consumers = createNode({ label: 'Consumers', x: 790, y: 180, width: 208, height: 82, shape: 'subroutine', fill: '#eaf5ff', stroke: '#5d92c2', textColor: theme.ink });
+  const warehouse = createNode({ label: 'Analytics Warehouse', x: 810, y: 340, width: 198, height: 100, shape: 'cylinder', fill: '#fff0dd', stroke: '#d3a251', textColor: theme.ink });
+  const alerts = createNode({ label: 'Alerting', x: 810, y: 470, width: 188, height: 82, shape: 'callout', fill: '#ffe9ea', stroke: '#da6f7c', textColor: theme.ink });
+  doc.nodes.push(frame, producer, ingestion, queue, consumers, warehouse, alerts);
+  doc.edges.push(
+    createEdge(producer.id, ingestion.id, { color: '#6776bf', kind: 'hierarchy' }),
+    createEdge(ingestion.id, queue.id, { color: '#daab4a', kind: 'hierarchy' }),
+    createEdge(queue.id, consumers.id, { color: '#5d92c2', kind: 'manual', style: 'elbow' }),
+    createEdge(queue.id, warehouse.id, { color: '#d3a251', kind: 'manual', style: 'elbow' }),
+    createEdge(consumers.id, alerts.id, { color: '#da6f7c', kind: 'manual' }),
+  );
+  doc.rootId = ingestion.id;
+  doc.showGuide = options.seedGuide === false ? false : true;
+  return doc;
+}
+
+function buildAiAgenticSystem(title, options = {}) {
+  const doc = createDocument(title, 'ai', 'ai-agentic-system');
+  doc.themeId = 'atlas';
+  const theme = getTheme(doc.themeId);
+  const board = createNode({ label: 'Agent Runtime', x: 130, y: 110, width: 1020, height: 470, shape: 'board', fill: hexToRgba('#102134', 0.08), stroke: '#375a76', textColor: theme.ink, fontSize: 12 });
+  const user = createNode({ label: 'Operator Prompt', x: 170, y: 290, width: 210, height: 78, shape: 'note', fill: '#fff8de', stroke: '#d8b35b', textColor: theme.ink });
+  const orchestrator = createNode({ label: 'Opseeq Orchestrator', x: 460, y: 290, width: 228, height: 82, shape: 'rounded-rect', fill: '#e8f2ff', stroke: '#4f8fe9', textColor: theme.ink });
+  const planner = createNode({ label: 'Planner', x: 780, y: 170, width: 182, height: 118, shape: 'diamond', fill: '#eaf4ff', stroke: '#6ca2d2', textColor: theme.ink });
+  const tools = createNode({ label: 'Tool Skills', x: 780, y: 330, width: 188, height: 70, shape: 'pill', fill: '#ecf7ff', stroke: '#4f93bc', textColor: theme.ink });
+  const memory = createNode({ label: 'Memory + Context', x: 1020, y: 320, width: 178, height: 96, shape: 'cylinder', fill: '#fff0de', stroke: '#d6a04e', textColor: theme.ink });
+  const model = createNode({ label: 'Kimi / Ollama Runtime', x: 1020, y: 170, width: 198, height: 78, shape: 'rect', fill: '#ffe8ea', stroke: '#db7481', textColor: theme.ink });
+  doc.nodes.push(board, user, orchestrator, planner, tools, memory, model);
+  doc.edges.push(
+    createEdge(user.id, orchestrator.id, { color: '#4f8fe9', kind: 'hierarchy' }),
+    createEdge(orchestrator.id, planner.id, { color: '#6ca2d2', kind: 'manual', style: 'elbow' }),
+    createEdge(orchestrator.id, tools.id, { color: '#4f93bc', kind: 'manual', style: 'elbow' }),
+    createEdge(planner.id, model.id, { color: '#db7481', kind: 'manual' }),
+    createEdge(tools.id, memory.id, { color: '#d6a04e', kind: 'manual' }),
+    createEdge(memory.id, orchestrator.id, { color: theme.line, kind: 'manual', style: 'elbow' }),
+  );
+  doc.rootId = orchestrator.id;
+  doc.showGuide = options.seedGuide === false ? false : true;
+  return doc;
+}
+
+function buildRagPipeline(title, options = {}) {
+  const doc = createDocument(title, 'ai', 'rag-pipeline');
+  doc.themeId = 'signal';
+  const theme = getTheme(doc.themeId);
+  const board = createNode({ label: 'RAG Pipeline', x: 120, y: 130, width: 1040, height: 430, shape: 'board', fill: hexToRgba('#0e4238', 0.08), stroke: '#2f7f6a', textColor: theme.ink, fontSize: 12 });
+  const sources = createNode({ label: 'Source Docs', x: 170, y: 200, width: 190, height: 94, shape: 'document', fill: '#f6ffec', stroke: '#86b260', textColor: theme.ink });
+  const ingest = createNode({ label: 'Chunk + Embed', x: 410, y: 200, width: 210, height: 78, shape: 'subroutine', fill: '#e6f7ff', stroke: '#5a9cc3', textColor: theme.ink });
+  const vectorDb = createNode({ label: 'Vector Store', x: 700, y: 200, width: 188, height: 98, shape: 'cylinder', fill: '#fff2de', stroke: '#d8a44f', textColor: theme.ink });
+  const retriever = createNode({ label: 'Retriever', x: 410, y: 360, width: 194, height: 76, shape: 'rect', fill: '#ecf8ff', stroke: '#6f9ec9', textColor: theme.ink });
+  const prompt = createNode({ label: 'Prompt Assembly', x: 670, y: 360, width: 210, height: 100, shape: 'note', fill: '#fff8e7', stroke: '#d6b458', textColor: theme.ink });
+  const llm = createNode({ label: 'LLM Runtime', x: 940, y: 360, width: 180, height: 76, shape: 'rounded-rect', fill: '#ffeef1', stroke: '#dd7e89', textColor: theme.ink });
+  doc.nodes.push(board, sources, ingest, vectorDb, retriever, prompt, llm);
+  doc.edges.push(
+    createEdge(sources.id, ingest.id, { color: '#86b260', kind: 'hierarchy' }),
+    createEdge(ingest.id, vectorDb.id, { color: '#d8a44f', kind: 'manual' }),
+    createEdge(vectorDb.id, retriever.id, { color: '#6f9ec9', kind: 'manual', style: 'elbow' }),
+    createEdge(retriever.id, prompt.id, { color: '#d6b458', kind: 'manual' }),
+    createEdge(prompt.id, llm.id, { color: '#dd7e89', kind: 'manual' }),
+  );
+  doc.rootId = ingest.id;
+  doc.showGuide = options.seedGuide === false ? false : true;
+  return doc;
+}
+
+function buildMlopsLoop(title, options = {}) {
+  const doc = createDocument(title, 'ai', 'mlops-loop');
+  doc.themeId = 'paper';
+  const theme = getTheme(doc.themeId);
+  const board = createNode({ label: 'MLOps Loop', x: 130, y: 110, width: 1020, height: 470, shape: 'board', fill: hexToRgba('#35241d', 0.05), stroke: '#907058', textColor: theme.ink, fontSize: 12 });
+  const data = createNode({ label: 'Training Data', x: 180, y: 220, width: 182, height: 96, shape: 'cylinder', fill: '#fff0de', stroke: '#d48b3f', textColor: theme.ink });
+  const train = createNode({ label: 'Train + Validate', x: 430, y: 220, width: 204, height: 82, shape: 'subroutine', fill: '#eaf8ff', stroke: '#6fa4ca', textColor: theme.ink });
+  const registry = createNode({ label: 'Model Registry', x: 700, y: 220, width: 190, height: 96, shape: 'cylinder', fill: '#f0ebff', stroke: '#9177d9', textColor: theme.ink });
+  const deploy = createNode({ label: 'Serving Deployment', x: 930, y: 220, width: 194, height: 78, shape: 'rect', fill: '#e8fff3', stroke: '#69ac81', textColor: theme.ink });
+  const monitor = createNode({ label: 'Monitoring', x: 930, y: 390, width: 182, height: 82, shape: 'table', fill: '#fdf6e6', stroke: '#d5ad5d', textColor: theme.ink });
+  const feedback = createNode({ label: 'Feedback + Labels', x: 430, y: 390, width: 226, height: 92, shape: 'callout', fill: '#ffe9ec', stroke: '#d77f89', textColor: theme.ink });
+  doc.nodes.push(board, data, train, registry, deploy, monitor, feedback);
+  doc.edges.push(
+    createEdge(data.id, train.id, { color: '#6fa4ca', kind: 'hierarchy' }),
+    createEdge(train.id, registry.id, { color: '#9177d9', kind: 'manual' }),
+    createEdge(registry.id, deploy.id, { color: '#69ac81', kind: 'manual' }),
+    createEdge(deploy.id, monitor.id, { color: '#d5ad5d', kind: 'manual' }),
+    createEdge(monitor.id, feedback.id, { color: '#d77f89', kind: 'manual', style: 'elbow' }),
+    createEdge(feedback.id, data.id, { color: theme.line, kind: 'manual', style: 'elbow' }),
+  );
+  doc.rootId = train.id;
+  doc.showGuide = options.seedGuide === false ? false : true;
+  return doc;
+}
+
+function buildDataLakehouse(title, options = {}) {
+  const doc = createDocument(title, 'data', 'data-lakehouse');
+  doc.themeId = 'atlas';
+  const theme = getTheme(doc.themeId);
+  const board = createNode({ label: 'Lakehouse Platform', x: 120, y: 110, width: 1040, height: 470, shape: 'board', fill: hexToRgba('#152b44', 0.08), stroke: '#45668a', textColor: theme.ink, fontSize: 12 });
+  const bronze = createNode({ label: 'Bronze Ingestion', x: 170, y: 220, width: 210, height: 92, shape: 'table', fill: '#fff1db', stroke: '#d5a454', textColor: theme.ink });
+  const silver = createNode({ label: 'Silver Curated', x: 450, y: 220, width: 210, height: 92, shape: 'table', fill: '#eaf4ff', stroke: '#6b9bcb', textColor: theme.ink });
+  const gold = createNode({ label: 'Gold Serving', x: 730, y: 220, width: 210, height: 92, shape: 'table', fill: '#fdf2dc', stroke: '#d8af5c', textColor: theme.ink });
+  const catalog = createNode({ label: 'Catalog + Governance', x: 450, y: 380, width: 240, height: 82, shape: 'rect', fill: '#e9f3ff', stroke: '#588bc0', textColor: theme.ink });
+  const warehouse = createNode({ label: 'Warehouse Endpoint', x: 1010, y: 330, width: 180, height: 100, shape: 'cylinder', fill: '#fff0dd', stroke: '#d7a150', textColor: theme.ink });
+  doc.nodes.push(board, bronze, silver, gold, catalog, warehouse);
+  doc.edges.push(
+    createEdge(bronze.id, silver.id, { color: '#6b9bcb', kind: 'hierarchy' }),
+    createEdge(silver.id, gold.id, { color: '#d8af5c', kind: 'manual' }),
+    createEdge(silver.id, catalog.id, { color: '#588bc0', kind: 'manual' }),
+    createEdge(gold.id, warehouse.id, { color: '#d7a150', kind: 'manual', style: 'elbow' }),
+    createEdge(catalog.id, warehouse.id, { color: theme.line, kind: 'manual' }),
+  );
+  doc.rootId = silver.id;
+  doc.showGuide = options.seedGuide === false ? false : true;
+  return doc;
+}
+
+function buildStreamingAnalytics(title, options = {}) {
+  const doc = createDocument(title, 'data', 'streaming-analytics');
+  doc.themeId = 'studio';
+  const theme = getTheme(doc.themeId);
+  const board = createNode({ label: 'Streaming Analytics', x: 130, y: 130, width: 1020, height: 430, shape: 'board', fill: hexToRgba('#191d28', 0.06), stroke: '#5f6c85', textColor: theme.ink, fontSize: 12 });
+  const producers = createNode({ label: 'Event Producers', x: 170, y: 300, width: 210, height: 70, shape: 'terminator', fill: '#edf2ff', stroke: '#7487c6', textColor: theme.ink });
+  const stream = createNode({ label: 'Streaming Bus', x: 470, y: 290, width: 118, height: 118, shape: 'connector', fill: '#fff4db', stroke: '#d6a84f', textColor: theme.ink });
+  const processing = createNode({ label: 'Realtime Processing', x: 700, y: 220, width: 220, height: 82, shape: 'subroutine', fill: '#e8f5ff', stroke: '#6499c8', textColor: theme.ink });
+  const dashboards = createNode({ label: 'Live Dashboards', x: 980, y: 210, width: 190, height: 88, shape: 'display', fill: '#ecf7ff', stroke: '#5a95c2', textColor: theme.ink });
+  const sink = createNode({ label: 'Analytical Sink', x: 980, y: 360, width: 180, height: 98, shape: 'cylinder', fill: '#fff1de', stroke: '#d8a452', textColor: theme.ink });
+  const alerting = createNode({ label: 'Threshold Alerts', x: 700, y: 380, width: 220, height: 90, shape: 'callout', fill: '#ffe9ec', stroke: '#d87883', textColor: theme.ink });
+  doc.nodes.push(board, producers, stream, processing, dashboards, sink, alerting);
+  doc.edges.push(
+    createEdge(producers.id, stream.id, { color: '#7487c6', kind: 'hierarchy' }),
+    createEdge(stream.id, processing.id, { color: '#6499c8', kind: 'manual', style: 'elbow' }),
+    createEdge(processing.id, dashboards.id, { color: '#5a95c2', kind: 'manual' }),
+    createEdge(processing.id, sink.id, { color: '#d8a452', kind: 'manual', style: 'elbow' }),
+    createEdge(processing.id, alerting.id, { color: '#d87883', kind: 'manual' }),
+  );
+  doc.rootId = stream.id;
+  doc.showGuide = options.seedGuide === false ? false : true;
+  return doc;
+}
+
+function buildZeroTrustArchitecture(title, options = {}) {
+  const doc = createDocument(title, 'security', 'zero-trust');
+  doc.themeId = 'signal';
+  const theme = getTheme(doc.themeId);
+  const boundary = createNode({ label: 'Zero Trust Fabric', x: 120, y: 100, width: 1040, height: 480, shape: 'board', fill: hexToRgba('#0f2f28', 0.08), stroke: '#2d6f5e', textColor: theme.ink, fontSize: 12 });
+  const identity = createNode({ label: 'Identity Provider', x: 170, y: 280, width: 190, height: 78, shape: 'rounded-rect', fill: '#e7fff0', stroke: '#4ba178', textColor: theme.ink });
+  const policy = createNode({ label: 'Policy Engine', x: 430, y: 250, width: 190, height: 122, shape: 'diamond', fill: '#ecf8ff', stroke: '#639ac6', textColor: theme.ink });
+  const gateway = createNode({ label: 'Access Gateway', x: 700, y: 180, width: 190, height: 78, shape: 'rect', fill: '#edf5ff', stroke: '#6d93c8', textColor: theme.ink });
+  const workloads = createNode({ label: 'Service Workloads', x: 700, y: 350, width: 220, height: 82, shape: 'subroutine', fill: '#e8fff3', stroke: '#63ad86', textColor: theme.ink });
+  const audit = createNode({ label: 'Audit Trail', x: 980, y: 250, width: 170, height: 98, shape: 'cylinder', fill: '#fff2df', stroke: '#d6a250', textColor: theme.ink });
+  doc.nodes.push(boundary, identity, policy, gateway, workloads, audit);
+  doc.edges.push(
+    createEdge(identity.id, policy.id, { color: '#4ba178', kind: 'hierarchy' }),
+    createEdge(policy.id, gateway.id, { color: '#6d93c8', kind: 'manual', style: 'elbow' }),
+    createEdge(policy.id, workloads.id, { color: '#63ad86', kind: 'manual', style: 'elbow' }),
+    createEdge(gateway.id, audit.id, { color: '#d6a250', kind: 'manual' }),
+    createEdge(workloads.id, audit.id, { color: theme.line, kind: 'manual' }),
+  );
+  doc.rootId = policy.id;
+  doc.showGuide = options.seedGuide === false ? false : true;
+  return doc;
+}
+
+function buildSreObservability(title, options = {}) {
+  const doc = createDocument(title, 'operations', 'sre-observability');
+  doc.themeId = 'atlas';
+  const theme = getTheme(doc.themeId);
+  const board = createNode({ label: 'Observability Stack', x: 130, y: 110, width: 1020, height: 470, shape: 'board', fill: hexToRgba('#142c46', 0.08), stroke: '#3f6a91', textColor: theme.ink, fontSize: 12 });
+  const workloads = createNode({ label: 'Application Services', x: 170, y: 220, width: 236, height: 84, shape: 'subroutine', fill: '#e8f4ff', stroke: '#5b96c8', textColor: theme.ink });
+  const probes = createNode({ label: 'Probes', x: 490, y: 230, width: 124, height: 124, shape: 'circle', fill: '#ecfff4', stroke: '#5ba77b', textColor: theme.ink });
+  const logs = createNode({ label: 'Logs Index', x: 730, y: 180, width: 204, height: 94, shape: 'table', fill: '#f1f7ff', stroke: '#6e97c4', textColor: theme.ink });
+  const traces = createNode({ label: 'Trace Store', x: 730, y: 320, width: 198, height: 94, shape: 'cylinder', fill: '#fff2dd', stroke: '#d5a14f', textColor: theme.ink });
+  const alerts = createNode({ label: 'Alert Routing', x: 980, y: 250, width: 182, height: 92, shape: 'callout', fill: '#ffe9ec', stroke: '#d87782', textColor: theme.ink });
+  const runbook = createNode({ label: 'SRE Runbook', x: 470, y: 400, width: 214, height: 102, shape: 'note', fill: '#fff8e6', stroke: '#d4b257', textColor: theme.ink });
+  doc.nodes.push(board, workloads, probes, logs, traces, alerts, runbook);
+  doc.edges.push(
+    createEdge(workloads.id, probes.id, { color: '#5ba77b', kind: 'hierarchy' }),
+    createEdge(probes.id, logs.id, { color: '#6e97c4', kind: 'manual', style: 'elbow' }),
+    createEdge(probes.id, traces.id, { color: '#d5a14f', kind: 'manual', style: 'elbow' }),
+    createEdge(logs.id, alerts.id, { color: '#d87782', kind: 'manual' }),
+    createEdge(traces.id, alerts.id, { color: theme.line, kind: 'manual' }),
+    createEdge(alerts.id, runbook.id, { color: '#d4b257', kind: 'manual', style: 'elbow' }),
+  );
+  doc.rootId = probes.id;
+  doc.showGuide = options.seedGuide === false ? false : true;
+  return doc;
+}
+
+function buildEnterpriseIntegration(title, options = {}) {
+  const doc = createDocument(title, 'enterprise', 'enterprise-integration');
+  doc.themeId = 'studio';
+  const theme = getTheme(doc.themeId);
+  const board = createNode({ label: 'Enterprise Integration Hub', x: 120, y: 120, width: 1040, height: 450, shape: 'board', fill: hexToRgba('#1a1f2b', 0.06), stroke: '#67738c', textColor: theme.ink, fontSize: 12 });
+  const crm = createNode({ label: 'CRM', x: 170, y: 200, width: 160, height: 72, shape: 'rect', fill: '#edf2ff', stroke: '#7588cb', textColor: theme.ink });
+  const erp = createNode({ label: 'ERP', x: 170, y: 360, width: 160, height: 72, shape: 'rect', fill: '#ebf3ff', stroke: '#6f92c6', textColor: theme.ink });
+  const bus = createNode({ label: 'Integration Bus', x: 470, y: 280, width: 118, height: 118, shape: 'connector', fill: '#fff4db', stroke: '#d8aa50', textColor: theme.ink });
+  const gateway = createNode({ label: 'API Management', x: 760, y: 200, width: 200, height: 78, shape: 'rect', fill: '#e8f4ff', stroke: '#5f96c6', textColor: theme.ink });
+  const analytics = createNode({ label: 'Data Platform', x: 760, y: 360, width: 190, height: 98, shape: 'cylinder', fill: '#fff1de', stroke: '#d8a451', textColor: theme.ink });
+  const copilot = createNode({ label: 'AI Copilot', x: 1010, y: 280, width: 188, height: 80, shape: 'rounded-rect', fill: '#ffecef', stroke: '#d97c88', textColor: theme.ink });
+  doc.nodes.push(board, crm, erp, bus, gateway, analytics, copilot);
+  doc.edges.push(
+    createEdge(crm.id, bus.id, { color: '#7588cb', kind: 'hierarchy', style: 'elbow' }),
+    createEdge(erp.id, bus.id, { color: '#6f92c6', kind: 'hierarchy', style: 'elbow' }),
+    createEdge(bus.id, gateway.id, { color: '#5f96c6', kind: 'manual', style: 'elbow' }),
+    createEdge(bus.id, analytics.id, { color: '#d8a451', kind: 'manual', style: 'elbow' }),
+    createEdge(gateway.id, copilot.id, { color: '#d97c88', kind: 'manual' }),
+    createEdge(analytics.id, copilot.id, { color: theme.line, kind: 'manual' }),
+  );
+  doc.rootId = bus.id;
+  doc.showGuide = options.seedGuide === false ? false : true;
+  return doc;
+}
+
 function createDocument(title, type, templateId) {
   return {
     id: uid('doc'),
@@ -3867,12 +4271,16 @@ function templateNameFor(templateId) {
   return TEMPLATE_REGISTRY[templateId]?.name || templateId || 'Diagram';
 }
 
+function getLibraryEntries() {
+  return Object.values(LIBRARY_SECTIONS).flat();
+}
+
 function labelForShape(shapeId) {
-  return Object.values(LIBRARY_SECTIONS).flat().find((entry) => entry.id === shapeId)?.label || shapeId;
+  return getLibraryEntries().find((entry) => entry.id === shapeId)?.label || shapeId;
 }
 
 function allShapeOptions() {
-  return Array.from(new Set(Object.values(LIBRARY_SECTIONS).flat().map((entry) => entry.id).concat(['rounded-rect', 'rect', 'pill', 'diamond', 'note', 'document', 'cylinder', 'circle'])));
+  return Array.from(new Set(getLibraryEntries().map((entry) => entry.id).concat(['rounded-rect', 'rect', 'pill', 'diamond', 'note', 'document', 'cylinder', 'circle'])));
 }
 
 function sanitizeShape(shapeId) {
@@ -3886,7 +4294,7 @@ function isContainerShape(shapeId) {
 }
 
 function baseShapeConfig(shapeId) {
-  return Object.values(LIBRARY_SECTIONS).flat().find((entry) => entry.id === shapeId) || { width: 180, height: 72 };
+  return getLibraryEntries().find((entry) => entry.id === shapeId) || { width: 180, height: 72 };
 }
 
 function normalizeDocuments(documents) {
@@ -4213,7 +4621,7 @@ function renderReconnectPreview(doc) {
   const target = interaction.end === 'target' ? floatingNode : targetNode;
   const geometry = getEdgeGeometry(source, target, edge);
   const oppositeId = interaction.end === 'source' ? edge.target : edge.source;
-  const hoverNode = findNodeAtWorldPoint(doc, interaction.pointerWorld, 20, oppositeId);
+  const hoverNode = findNodeAtWorldPoint(doc, interaction.pointerWorld, 28, oppositeId);
 
   return `
     <g class="reconnect-preview" pointer-events="none">
@@ -4251,6 +4659,13 @@ function wrapGridOffset(value, step) {
   return ((value % step) + step) % step;
 }
 
+function normalizeWheelDelta(event) {
+  let delta = Number(event.deltaY) || 0;
+  if (event.deltaMode === 1) delta *= 20;
+  else if (event.deltaMode === 2) delta *= 200;
+  return delta;
+}
+
 function capitalize(value) {
   return String(value || '').charAt(0).toUpperCase() + String(value || '').slice(1);
 }
@@ -4259,7 +4674,7 @@ function getCreateTemplateChoices() {
   if (state.createModal.mode === 'blank') {
     return ['blank-canvas', 'mind-map', 'logic-chart'];
   }
-  return TEMPLATE_GROUPS.flatMap((group) => group.items);
+  return Array.from(new Set(TEMPLATE_GROUPS.flatMap((group) => group.items)));
 }
 
 function getDocumentPreviewDataUri(doc) {
